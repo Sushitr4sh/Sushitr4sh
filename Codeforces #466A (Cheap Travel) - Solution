@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    int n, m, a, b, sum = 0, total, remainder;
+    cin >> n >> m >> a >> b;
+
+    if(n%m == 0){
+        if (a < b){
+
+        }
+        sum = n/m;
+        remainder = a*n;
+        total = sum*b;
+        if (remainder < total){
+            cout << remainder;
+        } else {
+            cout << total;
+        }
+    } else {
+        sum = n/m;
+        remainder = n%m;
+        total = sum*b + remainder*a;
+        if (sum*b + remainder*a > (sum+1) * b){
+            cout << (sum+1)*b;
+        } else {
+        cout << total;
+        }
+    }
+    return 0;
+}
