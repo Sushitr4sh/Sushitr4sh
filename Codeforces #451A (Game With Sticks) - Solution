@@ -1,0 +1,37 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    int n, m, totalInt;
+    bool akTurn = true, maTurn = false;
+    cin >> n >> m;
+    totalInt = n*m;
+    while (true){
+        if (akTurn){
+            totalInt = totalInt - (n+m) + 1;
+            n = n - 1;
+            m = m - 1;
+        } else if (maTurn) {
+            totalInt = totalInt - (n+m) + 1;
+            n = n - 1;
+            m = m - 1;
+        }
+        if (akTurn && totalInt == 0){
+            cout << "Akshat";
+            break;
+        } else if (maTurn && totalInt == 0){
+            cout << "Malvika";
+            break;
+        }
+        if (akTurn){
+            akTurn = false;
+            maTurn = true;
+        } else if (maTurn){
+            akTurn = true;
+            maTurn = false;
+        }
+    }
+    return 0;
+} 
