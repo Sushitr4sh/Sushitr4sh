@@ -1,0 +1,51 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    int n, m;
+    bool turn1 = true, turn2 = false;
+    cin >> n >> m;
+    char t[n][m];
+    for (int i = 0; i < n; i++){
+        if (i%2 == 1){
+            if (turn1){
+                for (int j = 0; j < m; j++){
+                    if (j < m-1){
+                        t[i][j] = '.';
+                    } else {
+                        t[i][j] = '#';
+                    }
+                }
+            } else if (turn2){
+                for (int j = m-1; j >= 0; j--){
+                    if (j > 0){
+                        t[i][j] = '.';
+                    } else {
+                        t[i][j] = '#';
+                    }
+                }
+            }
+            if (turn1){
+                turn1 = false;
+                turn2 = true;
+            } else if (turn2){
+                turn1 = true;
+                turn2 = false;
+            }
+        } else {
+            for (int j = 0; j < m; j++){
+                t[i][j] = '#';
+            }
+        }
+    }
+
+    for (int i = 0; i < n; i++){
+        for (int j = 0; j < m; j++){
+            cout << t[i][j];
+        } cout << endl;
+    }
+
+    return 0;
+}
